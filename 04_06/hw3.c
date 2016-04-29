@@ -1,0 +1,72 @@
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+
+void createMatrix(int matrix[]);
+void addMatrix(int m1[], int m2[], int result[]);
+
+int main(int argc, char const *argv[])
+{
+    int a[30], b[30], result[30];
+    int i;
+
+    srand(time(NULL));
+
+    createMatrix(a);
+    createMatrix(b);
+
+    addMatrix(a, b, result);
+
+    printf("matrix1:\n");
+    for(i=0; i<30; i++)
+    {
+        printf("%3d ", a[i]);
+        if(i%6 == 5)
+        {
+            printf("\n");
+        }
+    }
+    printf("\n");
+
+    printf("matrix2:\n");
+    for(i=0; i<30; i++)
+    {
+        printf("%3d ", b[i]);
+        if(i%6 == 5)
+        {
+            printf("\n");
+        }
+    }
+    printf("\n");
+
+    printf("result:\n");
+    for(i=0; i<30; i++)
+    {
+        printf("%3d ", result[i]);
+        if(i%6 == 5)
+        {
+            printf("\n");
+        }
+    }
+    return 0;
+}
+
+void createMatrix(int matrix[])
+{
+    int i;
+
+    for(i=0; i<30; i++)
+    {
+        matrix[i] = rand()%100+1;
+    }
+}
+
+void addMatrix(int m1[], int m2[], int result[])
+{
+    int i;
+
+    for(i=0; i<30; i++)
+    {
+        result[i] = m1[i] + m2[i];
+    }
+}

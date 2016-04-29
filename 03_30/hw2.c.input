@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <math.h>
+
+void isPerfect(int a);
+
+int main(int argc, char const *argv[])
+{
+    int i;
+
+    for (i = 0; i < count; ++i)
+    {
+        isPerfect(i);
+    }
+    return 0;
+}
+
+void isPerfect(int a)
+{
+    double v1 = sqrt((double)(2*a));
+    if((int)v1 * (int)(v1+0.5) == a)
+    {
+        printf("%d is perfect\n", a);
+    }
+}

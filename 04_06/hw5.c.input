@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+void createMatrix(int matrix[][5], int rows, int cols);
+
+int main(int argc, char const *argv[])
+{
+    int a[5][5];
+
+    createMatrix(a, 5, 5);
+
+    return 0;
+}
+
+void createMatrix(int matrix[][5], int rows, int cols)
+{
+    return;
+}
