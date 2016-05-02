@@ -19,7 +19,7 @@ int main(int argc, char const *argv[])
             "1.Subtraction\n"
             "2.ultiplication\n"
             "3.End\n"
-            "Select the operation: \n"
+            "Select the operation: "
         );
         scanf("%zd", &select);
 
@@ -29,11 +29,11 @@ int main(int argc, char const *argv[])
             return 0;
         }
 
-        printf("Enter two numbers: \n");
+        printf("Enter the two numbers: ");
         scanf("%d%d", &n1, &n2);
 
         result = (func[select])(n1, n2);
-        printf("%d %c %d = %d \n", n1, operator_d[select], n2, result);
+        printf("\n\t%d %c %d = %d \n\n", n1, operator_d[select], n2, result);
     }
 
     return 0;
