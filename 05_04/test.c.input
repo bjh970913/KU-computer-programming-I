@@ -1,0 +1,25 @@
+beakui-MacBook-Air:05_04 bjh970913$ ./hw4
+warning: this program uses gets(), which is unsafe.
+Enter a string: Westborough
+Enter a string: Wellesley
+Enter a string: Natick
+Enter a string: Waltham
+Enter a string: Framingham
+Enter a string: Marlborough
+Enter a string: Boston
+Enter a string: Ashland
+Enter a string: Hopkington
+Enter a string: Shrewsbury
+
+The strings in sorted order are:
+Ashland
+Boston
+Framingham
+Hopkington
+Marlborough
+Natick
+Shrewsbury
+Waltham
+Wellesley
+Westborough
+

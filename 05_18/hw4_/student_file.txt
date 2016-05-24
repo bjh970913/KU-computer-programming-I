@@ -1,0 +1,6 @@
+Name	stdnum		Year	Major
+Choi	20161000	1		Math
+Park	20110000	3		Computer
+Suck	20159900	4		None
+ Joo	20101919	4		Phone
+Kock	20133343	2		Water

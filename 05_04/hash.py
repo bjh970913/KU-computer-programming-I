@@ -70,7 +70,7 @@ if __name__ == '__main__':
 
     # hash_2('apple')
     for i in words[:-1]:
-        key = hash_2(i)
+        key = hash(i)
         # if hash_2('apple') == hash_2(i):
             # print "collide with "+i+" hash : "+ str(hash_2(i))
         if key in freq:
