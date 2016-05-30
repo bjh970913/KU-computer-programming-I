@@ -20,7 +20,7 @@ void sFlipping() {
 void sClear() {
 	COORD coor = { 0,0 };
 	DWORD dw;
-	FillConsoleOutputCharacter(screen[sIdx], ' ', 80 * 25, coor, &dw);
+	FillConsoleOutputCharacter(screen[sIdx], ' ', 80 * 40, coor, &dw);
 }
 void sRelease() {
 	CloseHandle(screen[0]);
