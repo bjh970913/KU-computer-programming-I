@@ -188,23 +188,22 @@ void draw() {
 			switch (obj.map[j][i])
 			{
 			case WALL:
-				sPrint(j*2, i, "a");
+				sPrint(j*2, i, "■");
 				//printf("a");
 				break;
 			case PREY:
-				sPrint(j*2, i, "b");
+				sPrint(j*2, i, "♥");
 				//printf("b");
 				break;
 			case SN_HEAD:
-				sPrint(j*2, i, "c");
+				sPrint(j*2, i, "◎");
 				//printf("c");
 				break;
 			case SN_BODY:
-				sPrint(j*2, i, "d");
+				sPrint(j*2, i, "◈");
 				//printf("d");
 				break;
 			}
-			//printf("\n");
 		}
 	}
 
