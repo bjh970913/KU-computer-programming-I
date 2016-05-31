@@ -35,15 +35,24 @@ void main() {
 		update();				// 변수 업데이트
 		draw();					// 화면에 출력
 
-		if (!sn.alive || obj.prey_cnt==0)
+		if (!sn.alive)
 		{
+			sPrint(10, 10, "You loose!!");
+			break;
+		}
+		else if(obj.prey_cnt == 0)
+		{
+			update();
+			draw();
+			sPrint(10, 10, "You win!!");
 			break;
 		}
 
 		Sleep(50);
 	}
-	release();
 
-	printf("END!!");
+	sFlipping();
+	_getch();
+	sRelease();
 }
 
