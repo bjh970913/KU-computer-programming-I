@@ -15,6 +15,14 @@ void main() {
 		if (_kbhit()) {			// 키보드 입력이 있으면 1, 없으면 0을 리턴
 			ekey = _getch();	// 입력받은 키 값을 받음
 			_flushall();
+			
+			if (
+				sn.head_direction == UP && ekey == D ||
+				sn.head_direction == DOWN && ekey == U ||
+				sn.head_direction == RIGHT && ekey == L ||
+				sn.head_direction == LEFT && ekey == R
+				)
+				ekey = sn.head_direction;
 
 			switch (ekey) {
 			case L:
