@@ -1,0 +1,87 @@
+#include <stdlib.h>
+#include <stdio.h>
+
+struct _node{
+    int data;
+    struct _node *prev;
+    struct _node *next;
+}typedef node;
+
+node* createNode()
+{
+    node *tmp;
+    tmp = (node *)malloc(sizeof(node));
+
+    tmp->data = NULL;
+    tmp->prev = tmp;
+    tmp->next = tmp;
+
+    return tmp;
+}
+
+void destroyNodes(node *head)
+{
+    node *cur = head;
+    while(cur->next != head)
+    {
+        cur = cur->next;
+        free(cur->prev);
+    }
+    free(head);
+}
+
+/**
+ * 리스트 데이터 출력
+ * @param head 리스트 헤드
+ * @param str0 출력 포멧 스트링 (유저 입력 절대 전달 금지)
+ * @param str1 구분자
+ * @param str2 마지막 데이터 표시
+ */
+void printNodes(node *head, char *str0, char *str1, char *str2)
+{
+    node *cur = head;
+    while(cur->next != head)
+    {
+        printf(str0, cur->data, str1);
+        cur = cur->next;
+    }
+    printf(str0, cur->data, str1);
+    printf("%s\n", str2);
+}
+
+void push(node **head, int data)
+{
+    node *tmp = createNode();
+
+    tmp->data =  data;
+
+    tmp->next = *head;
+    tmp->prev = (*head)->prev;
+
+    (*head)->prev->next = tmp;
+    (*head)->prev = tmp;
+
+    *head = tmp;
+}
+
+int pop(node **head, int data)
+{
+    int tmp;
+    node *tmp1;
+    
+    tmp1 = *head;
+    tmp = tmp1->data;
+
+    tmp1->next->prev = tmp1->prev;
+    tmp1->prev->next = tmp1->next;
+
+    free(tmp1);
+
+    return tmp;
+}
+
+void prepend(node **head, int data)
+{
+    push(head, data);
+    *head = (*head)->next;
+}
