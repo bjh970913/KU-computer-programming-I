@@ -1,43 +1,35 @@
 #include <stdio.h>
-
-struct STUDENT{
-    char name[40];
-    int stdnum;
-    int year;
-    char major[10];
-}typedef sutdent;
+#include "list.h"
 
 int main(int argc, char const *argv[])
 {
-    sutdent stds[5] = {0,};
-    FILE *fp = fopen("./hw4_/student_file.txt", "wb");
-    int i, num;
+    int tmp1;
+    node *list = NULL, *reverse = NULL;
+    
+    prepend(&list, 'A');
+    prepend(&list, 'B');
+    prepend(&list, 'C');
+    prepend(&list, 'D');
+    prepend(&list, 'E');
+    prepend(&list, 'F');
+    prepend(&list, 'G');
+    prepend(&list, 'H');
+    prepend(&list, 'I');
+    prepend(&list, 'J');
 
-    fprintf(fp, "Name\tstdnum\t\tYear\tMajor\n");
-    for(i=0; i<5; i++)
+    printf("The list is: \n");
+    printNodes(list, "%c%s", " ", "*");
+    printf("\n");
+
+    while(tmp1 = pop(&list))
     {
-        printf("Name student_number Year Major: ");
-        scanf("%s", stds[i].name);
-        scanf("%d", &(stds[i].stdnum));
-        scanf("%d", &(stds[i].year));
-        scanf("%s", stds[i].major);
-
-        fprintf(fp, "%4s\t", stds[i].name);
-        fprintf(fp, "%d\t", stds[i].stdnum);
-        fprintf(fp, "%d\t\t", stds[i].year);
-        fprintf(fp, "%s\n", stds[i].major);
+        push(&reverse, tmp1);
     }
 
-    printf("Insert the student number to find: ");
-    scanf("%d", &num);
+    printf("The list in reverse is: \n");
+    printNodes(reverse, "%c%s", " ", "*");
+    printf("\n");
 
-    for(i=0; i<5; i++)
-    {
-        if(stds[i].stdnum == num)
-        {
-            printf("The major of student with ID %d is %s\n", stds[i].stdnum, stds[i].major);
-            break;
-        }
-    }
+    destroyNodes(list);
     return 0;
 }

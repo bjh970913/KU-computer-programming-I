@@ -8,16 +8,14 @@ int main(int argc, char const *argv[])
     node *list2, *list2_ref;
     node *list_merged = NULL, tmp_node;
 
-    list1 = createNode();
-    list1->data = 10;
+    push(&list1, 10);
     push(&list1, 8);
     push(&list1, 6);
     push(&list1, 4);
     push(&list1, 2);
     list1_ref = list1;
 
-    list2 = createNode();
-    list2->data = 9;
+    push(&list2, 9);
     push(&list2, 7);
     push(&list2, 5);
     push(&list2, 3);
@@ -42,15 +40,7 @@ int main(int argc, char const *argv[])
             list2_ref = list2_ref->next;   
         }
 
-        if(list_merged == NULL)
-        {
-            list_merged = createNode();
-            list_merged->data = tmp1;
-        }
-        else
-        {
-            prepend(&list_merged, tmp1);
-        }
+        prepend(&list_merged, tmp1);
     }
     prepend(&list_merged, list1_ref->data);
 

@@ -22,12 +22,16 @@ node* createNode()
 void destroyNodes(node *head)
 {
     node *cur = head;
-    while(cur->next != head)
+    if(head == NULL)
+    {
+        return;
+    }
+    do
     {
         cur = cur->next;
         free(cur->prev);
     }
-    free(head);
+    while(cur->next != head);
 }
 
 /**
@@ -40,17 +44,27 @@ void destroyNodes(node *head)
 void printNodes(node *head, char *str0, char *str1, char *str2)
 {
     node *cur = head;
+    if(head == NULL)
+    {
+        return;
+    }
     while(cur->next != head)
     {
         printf(str0, cur->data, str1);
         cur = cur->next;
     }
     printf(str0, cur->data, str1);
-    printf("%s\n", str2);
+    printf("%s", str2);
 }
 
 void push(node **head, int data)
 {
+    if(*head == NULL)
+    {
+        *head = createNode();
+        (*head)->data = data;
+        return;
+    }
     node *tmp = createNode();
 
     tmp->data =  data;
@@ -64,16 +78,30 @@ void push(node **head, int data)
     *head = tmp;
 }
 
-int pop(node **head, int data)
+int pop(node **head)
 {
     int tmp;
     node *tmp1;
+
+    if(*head == NULL)
+    {
+        return 0;
+    }
     
     tmp1 = *head;
     tmp = tmp1->data;
 
     tmp1->next->prev = tmp1->prev;
     tmp1->prev->next = tmp1->next;
+
+    if(*head == tmp1->next)
+    {
+        *head = NULL;
+    }
+    else
+    {
+        *head = tmp1->next;
+    }
 
     free(tmp1);
 
