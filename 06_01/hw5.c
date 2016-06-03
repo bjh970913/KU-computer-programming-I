@@ -6,6 +6,8 @@ int main(int argc, char const *argv[])
     char tmp, tmp2, flag;
     node *plain, *string, *reverse;
 
+    printf("Enter a line of text:\n");
+
     while(tmp = getchar())
     {
         if(tmp == '\n')
@@ -37,7 +39,7 @@ int main(int argc, char const *argv[])
 
     printf("\"");
     printNodes(string, "%c%s", "", "");
-    printf("\" is %sa palindrome.", (flag==0)?"":"not ");
+    printf("\" is %sa palindrome.\n", (flag==0)?"":"not ");
 
     destroyNodes(plain);
     destroyNodes(reverse);
