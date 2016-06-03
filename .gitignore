@@ -31,3 +31,5 @@ Project02/Project02/x64/Release/Source.obj
 Project02/Project02/x64/Release/screen.obj
 Project02/Project02/x64/Release/snake.obj
 Project02/Project02/x64/Release/vc140.pdb
+*.opendb
+*.db
