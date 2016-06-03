@@ -61,6 +61,7 @@ void main() {
 
 	sFlipping();
 	_getch();
+	Sleep(2000);
 	sRelease();
 }
 
