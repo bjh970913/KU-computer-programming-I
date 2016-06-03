@@ -32,6 +32,7 @@ typedef struct _object {
 
 typedef struct _snake {
 	int length;
+	int length_aim;
 	int alive;
 	pos head, tail;
 	direction head_direction;
