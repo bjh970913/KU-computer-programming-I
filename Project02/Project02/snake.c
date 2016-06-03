@@ -31,52 +31,17 @@ void init() {
 
 	sn.head.x = tmp_x;
 	sn.head.y = tmp_y;
+	
+	sn.tail.x = tmp_x;
+	sn.tail.y = tmp_y;
+	
 	sn.alive = 1;
 	obj.map[tmp_x][tmp_y] = SN_HEAD;
 	sn.length = 1;
-
+	sn.length_aim = 6;
+	
 	sn.head_direction = rand() % 4;
-
-	while (sn.length != 6)
-	{
-		switch (sn.head_direction)
-		{
-		case LEFT:
-			obj.map[tmp_x + sn.length][tmp_y] = SN_BODY;
-			break;
-		case RIGHT:
-			obj.map[tmp_x - sn.length][tmp_y] = SN_BODY;
-			break;
-		case UP:
-			obj.map[tmp_x][tmp_y + sn.length] = SN_BODY;
-			break;
-		case DOWN:
-			obj.map[tmp_x][tmp_y - sn.length] = SN_BODY;
-			break;
-		}
-		sn.length++;
-	}
-
-	switch (sn.head_direction)
-	{
-	case LEFT:
-		sn.tail.x = tmp_x + 5;
-		sn.tail.y = tmp_y;
-		break;
-	case RIGHT:
-		sn.tail.x = tmp_x - 5;
-		sn.tail.y = tmp_y;
-		break;
-	case UP:
-		sn.tail.x = tmp_x;
-		sn.tail.y = tmp_y + 5;
-		break;
-	case DOWN:
-		sn.tail.x = tmp_x;
-		sn.tail.y = tmp_y - 5;
-		break;
-	}
-
+	
 	int num;
 	printf("Enter the number of items: ");
 	scanf_s("%d", &num);
@@ -134,6 +99,7 @@ void checkForward(pos front)
 			if (next == PREY)
 			{
 				obj.prey_cnt--;
+				sn.length_aim++;
 			}
 
 			goForward(front);
@@ -150,28 +116,33 @@ void goForward(pos front)
 	
 	obj.map[sn.head.x][sn.head.y] = SN_BODY;
 	sn.head = front;
+	if(sn.length_aim == sn.length)
+	{
+		x = sn.tail.x;
+		y = sn.tail.y;
 
-	x = sn.tail.x;
-	y = sn.tail.y;
-
-	obj.map[x][y] = EMPTY;
-	if (obj.map[x-1][y] == SN_BODY)
-	{
-		sn.tail.x = x - 1;
+		obj.map[x][y] = EMPTY;
+		if (obj.map[x-1][y] == SN_BODY)
+		{
+			sn.tail.x = x - 1;
+		}
+		else if (obj.map[x+1][y] == SN_BODY)
+		{
+			sn.tail.x = x + 1;
+		}
+		else if (obj.map[x][y-1] == SN_BODY)
+		{
+			sn.tail.y = y - 1;
+		}
+		else if (obj.map[x][y+1] == SN_BODY)
+		{
+			sn.tail.y = y + 1;
+		}
 	}
-	else if (obj.map[x+1][y] == SN_BODY)
+	else
 	{
-		sn.tail.x = x + 1;
+		sn.length++;
 	}
-	else if (obj.map[x][y-1] == SN_BODY)
-	{
-		sn.tail.y = y - 1;
-	}
-	else if (obj.map[x][y+1] == SN_BODY)
-	{
-		sn.tail.y = y + 1;
-	}
-
 }
 
 
