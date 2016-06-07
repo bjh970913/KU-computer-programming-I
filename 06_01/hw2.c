@@ -6,7 +6,7 @@ int main(int argc, char const *argv[])
     int tmp1;
     node *list1, *list1_ref;
     node *list2, *list2_ref;
-    node *list_merged = NULL, tmp_node;
+    node *list_merged = NULL;
 
     push(&list1, 10);
     push(&list1, 8);

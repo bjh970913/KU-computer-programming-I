@@ -4,7 +4,7 @@
 int main(int argc, char const *argv[])
 {
     int key, tmp, tmp2;
-    node *character = NULL, *tmp_node1, *tmp_node2;
+    node *character = NULL, *tmp_node1 = NULL, *tmp_node2 = NULL;
 
     printf(
         "Enter your choice\n"
