@@ -5,6 +5,9 @@ int main(int argc, char const *argv[])
 {
     char tmp, tmp2, flag;
     node *plain, *string, *reverse;
+	plain = NULL;
+	string = NULL;
+	reverse = NULL;
 
     printf("Enter a line of text:\n");
 
