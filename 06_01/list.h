@@ -12,7 +12,7 @@ node* createNode()
     node *tmp;
     tmp = (node *)malloc(sizeof(node));
 
-    tmp->data = NULL;
+    tmp->data = 0;
     tmp->prev = tmp;
     tmp->next = tmp;
 

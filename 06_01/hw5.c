@@ -8,18 +8,18 @@ int main(int argc, char const *argv[])
 
     printf("Enter a line of text:\n");
 
-    while(tmp = getchar())
+    tmp = getchar();
+    while(tmp != '\n')
     {
-        if(tmp == '\n')
-            break;
-        if(('a' <= tmp && tmp <= 'z') || 
-           ('A' <= tmp && tmp <= 'Z') || 
+        if(('a' <= tmp && tmp <= 'z') ||
+           ('A' <= tmp && tmp <= 'Z') ||
            ('0' <= tmp && tmp <= '9'))
         {
             prepend(&plain, tmp);
             push(&reverse, tmp);
         }
         prepend(&string, tmp);
+        tmp = getchar();
     }
     
     flag = 0;
