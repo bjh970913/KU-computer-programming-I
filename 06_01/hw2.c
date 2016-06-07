@@ -4,8 +4,8 @@
 int main(int argc, char const *argv[])
 {
     int tmp1;
-    node *list1, *list1_ref;
-    node *list2, *list2_ref;
+    node *list1 = NULL, *list1_ref = NULL;
+    node *list2 = NULL, *list2_ref = NULL;
     node *list_merged = NULL;
 
     push(&list1, 10);

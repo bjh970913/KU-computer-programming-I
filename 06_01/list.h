@@ -9,7 +9,7 @@ struct _node{
 
 node* createNode()
 {
-    node *tmp;
+    node *tmp = NULL;
     tmp = (node *)malloc(sizeof(node));
 
     tmp->data = 0;
@@ -81,7 +81,7 @@ void push(node **head, int data)
 int pop(node **head)
 {
     int tmp;
-    node *tmp1;
+    node *tmp1 = NULL;
 
     if(*head == NULL)
     {
